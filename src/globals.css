@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+body {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-color: var(--color-background);
+  color: var(--color-text-primary); */
+  background-color: #151515;
+  align-items: center;
+}
