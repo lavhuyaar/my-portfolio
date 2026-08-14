@@ -6,13 +6,13 @@ const VALID_COMMANDS: {
   ERROR: "error",
   HELP: "help",
   ABOUT: "about",
-  EMPTY: "empty",
   SOCIALS: "socials",
   PROJECTS: "projects",
   WORK_EXPERIENCE: "workexp",
   EDUCATION: "education",
   SKILLS: "skills",
   WHOAMI: "whoami",
+  EMPTY: "empty",
 };
 
 export { VALID_COMMANDS };

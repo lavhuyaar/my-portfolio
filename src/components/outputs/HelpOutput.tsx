@@ -19,20 +19,20 @@ const HelpOutput = () => {
   return (
     <div className="w-full flex flex-col">
       <h4>TOPIC</h4>
-      <p className="pl-6">{"  "}Portfolio Help System</p>
+      <p className="pl-3 sm:pl-6">{"  "}Portfolio Help System</p>
       <br />
       <h4>SHORT DESCRIPTION</h4>
-      <p className="pl-6">
+      <p className="pl-3 sm:pl-6">
         {"  "}Displays this Portfolio's available commands.
       </p>
       <br />
       <h4>AVAILABLE COMMANDS</h4>
-      <ul className="pl-6">
+      <ul className="pl-3 sm:pl-6">
         {Object.keys(aboutCommands).map((command, index) => (
-          <li key={index} className="flex gap-4">
-            <p className="md:w-50">{`"${command}"`}</p>
-            <p className="md:w-20">{"-->"}</p>
-            <p className="">{aboutCommands[command]}</p>
+          <li key={index} className="flex gap-3">
+            <p className="w-32">{`"${command}"`}</p>
+            <p className="hidden sm:inline sm:w-20">{"-->"}</p>
+            <p className="text-start">{aboutCommands[command]}</p>
           </li>
         ))}
       </ul>

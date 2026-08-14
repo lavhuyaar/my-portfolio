@@ -10,7 +10,7 @@ const directory: string = "C:\\Users\\Lav>";
 
 const OutputWrapper = ({ command, commandType }: OutputWrapperProps) => {
   if (commandType === COMMANDS.EMPTY)
-    return <p className="w-full flex items-center gap-1">{directory}</p>;
+    return <p className="w-full flex items-center gap-1 break-normal">{directory}</p>;
 
   return (
     <div className="w-full flex flex-col">

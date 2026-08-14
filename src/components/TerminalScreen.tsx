@@ -60,7 +60,7 @@ const TerminalScreen = () => {
             <p className="text-xs font-semibold ">Lav's Portfolio</p>
           </div>
         </div>
-        <div className="bg-[#202020] text-[#d7d7d2] w-full h-full overflow-y-auto px-1.5 py-2 text-lg font-[Cascadia_Mono]">
+        <div className="bg-[#202020] text-[#d7d7d2] w-full h-full overflow-y-auto px-1.5 py-2 text-sm sm:text-lg font-[Cascadia_Mono] break-normal">
           {/* Outputs */}
           {history.map((entry, index) => (
             <OutputWrapper
