@@ -1,8 +1,16 @@
-type OutputProps = {
-  type: string;
+import { VALID_COMMANDS as COMMANDS } from "../constants";
+import DefaultOutput from "./outputs/DefaultOutput";
+import ErrorOutput from "./outputs/ErrorOutput";
+
+const outputs: {
+  [key: string]: () => React.JSX.Element;
+} = {
+  [COMMANDS.DEFAULT]: DefaultOutput,
+  [COMMANDS.ERROR]: ErrorOutput,
 };
 
-const Output = ({ type }: OutputProps) => {
-  if (type == "default") return <p className="my-2">This is default output hihihihihihi</p>
+const Output = ({ commandType }: { commandType: string }) => {
+  const Component = outputs[commandType];
+  return <Component />;
 };
 export default Output;

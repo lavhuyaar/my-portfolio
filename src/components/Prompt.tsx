@@ -1,14 +1,14 @@
 const directory: string = "C:\\Users\\Lav>";
 
 type PromptProps = {
-  message: string;
-  setMessage: React.Dispatch<React.SetStateAction<string>>;
+  promptValue: string;
+  setPromptValue: React.Dispatch<React.SetStateAction<string>>;
   submitPrompt: VoidFunction;
 };
 
-const Prompt = ({ message, setMessage, submitPrompt }: PromptProps) => {
+const Prompt = ({ promptValue, setPromptValue, submitPrompt }: PromptProps) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setMessage(event.target.value);
+    setPromptValue(event.target.value);
   };
 
   const handleOnKeyboardEvent = (
@@ -21,10 +21,10 @@ const Prompt = ({ message, setMessage, submitPrompt }: PromptProps) => {
 
   return (
     <div className="w-full flex items-center gap-1">
-      <div className="">{directory}</div>
+      <div className="text-[#eeeeff]">{directory}</div>
       <input
         type="text"
-        value={message}
+        value={promptValue}
         onChange={handleOnChange}
         onKeyDown={handleOnKeyboardEvent}
         className="outline-none pl-2 w-full font-bold text-yellow-400"

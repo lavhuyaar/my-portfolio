@@ -1,31 +1,48 @@
 import { useState } from "react";
 import Prompt from "./Prompt";
-import Output from "./Output";
+import OutputWrapper from "./OutputWrapper";
 import { checkCommandValidity } from "../utils/checkCommandValidity";
+import { VALID_COMMANDS as COMMANDS } from "../constants";
+
+type OutputHistory = {
+  command: string;
+  type: string;
+};
 
 const TerminalScreen = () => {
-  const [promptMessage, setPromptMessage] = useState<string>("");
-  const [outputHistory, setOutputHistory] = useState<string[]>(["default"]);
+  const [promptValue, setPromptValue] = useState<string>("");
+  const [history, setHistory] = useState<OutputHistory[]>([
+    { command: "", type: "default" },
+  ]);
 
   const clearHistory = () => {
-    setOutputHistory([]);
-    setPromptMessage("");
+    setHistory([]);
+    setPromptValue("");
   };
 
   const submitPrompt = () => {
+    const cmd: string = promptValue.trim().toLowerCase();
+
     // Clears history
-    if (promptMessage == "clear") {
+    if (cmd == COMMANDS.CLEAR) {
       clearHistory();
       return;
     }
 
-    // Appends output or error
-    setOutputHistory((prev) => [
+    // Reflects Powershell's behavior when empty command is entered
+    if (cmd == "") {
+      setHistory((prev) => [...prev, { command: "", type: COMMANDS.EMPTY }]);
+      return;
+    }
+
+    // Appends entry or error
+    setHistory((prev) => [
       ...prev,
-      checkCommandValidity(promptMessage) ? promptMessage : "error",
+      checkCommandValidity(cmd)
+        ? { command: cmd, type: cmd }
+        : { command: cmd, type: COMMANDS.ERROR },
     ]);
-    // either pushes a valid command or tells an error must be printed
-    setPromptMessage(""); // resets the prompt
+    setPromptValue(""); // resets the prompt
   };
 
   return (
@@ -34,18 +51,21 @@ const TerminalScreen = () => {
         <div className=" bg-blue-400 pt-1.5 pl-1.5 w-full flex">
           <div className="bg-amber-400 py-2 pl-2 pr-18 rounded-t-md flex items-center gap-3">
             <div className="size-6 bg-blue-600"></div>
-            <p className="text-xs font-semibold ">Windows PowerShell</p>
+            <p className="text-xs font-semibold ">Lav's Portfolio</p>
           </div>
         </div>
-        <div className="bg-[#202020] text-[#eeeeec] w-full h-full overflow-y-auto px-1.5 py-2 text-lg font-[Cascadia_Mono]">
+        <div className="bg-[#202020] text-[#d7d7d2] w-full h-full overflow-y-auto px-1.5 py-2 text-lg font-[Cascadia_Mono]">
           {/* Outputs */}
-          {outputHistory.map((outputType, index) => (
-            <Output key={index} type={outputType} />
+          {history.map((entry, index) => (
+            <OutputWrapper
+              key={index}
+              command={entry.command}
+              commandType={entry.type}
+            />
           ))}
-
           <Prompt
-            message={promptMessage}
-            setMessage={setPromptMessage}
+            promptValue={promptValue}
+            setPromptValue={setPromptValue}
             submitPrompt={submitPrompt}
           />
         </div>
