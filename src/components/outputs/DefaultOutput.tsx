@@ -16,7 +16,8 @@ const DefaultOutput = () => {
       <br />
       <p>
         Prefer the traditional-style portfolio? Click{" "}
-        <HyperLink url="https://www.dummylink.com/simple"></HyperLink>
+        {/* later change the url here */}
+        <HyperLink url="https://www.dummylink.com/simple"></HyperLink> 
       </p>
     </div>
   );

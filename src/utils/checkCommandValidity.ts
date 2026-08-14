@@ -1,8 +1,8 @@
-import { commands } from "../json/commands";
+import { VALID_COMMANDS as COMMANDS } from "../constants";
 
 const checkCommandValidity: (command: string) => boolean = (command) => {
-  for (const key in commands) {
-    if (key == command) return true;
+  for (const key in COMMANDS) {
+    if (COMMANDS[key] == command) return true;
   }
   return false;
 };

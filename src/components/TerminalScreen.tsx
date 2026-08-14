@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Prompt from "./Prompt";
 import OutputWrapper from "./OutputWrapper";
 import { checkCommandValidity } from "../utils/checkCommandValidity";
@@ -14,6 +14,12 @@ const TerminalScreen = () => {
   const [history, setHistory] = useState<OutputHistory[]>([
     { command: "", type: "default" },
   ]);
+
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [history]);
 
   const clearHistory = () => {
     setHistory([]);
@@ -63,6 +69,7 @@ const TerminalScreen = () => {
               commandType={entry.type}
             />
           ))}
+          <div className="w-0 h-0" ref={bottomRef}></div>
           <Prompt
             promptValue={promptValue}
             setPromptValue={setPromptValue}
