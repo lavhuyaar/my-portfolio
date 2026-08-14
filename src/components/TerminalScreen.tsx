@@ -54,10 +54,11 @@ const TerminalScreen = () => {
   return (
     <div className="w-full bg-[#2e3436] h-[80vh] rounded-xl flex flex-col overflow-hidden p-1 mt-4">
       <div className="flex flex-col rounded-md w-full h-full overflow-hidden">
-        <div className=" bg-blue-400 pt-1.5 pl-1.5 w-full flex">
-          <div className="bg-amber-400 py-2 pl-2 pr-18 rounded-t-md flex items-center gap-3">
-            <div className="size-6 bg-blue-600"></div>
-            <p className="text-xs font-semibold ">Lav's Portfolio</p>
+        <div className=" bg-[#383e3f] pt-1.5 pl-1.5 w-full flex">
+          <div className="bg-[#272b2b] py-1 pl-1 pr-18 rounded-t-md flex items-center gap-3">
+            {/* replace this div with some logo later */}
+            <div className="size-6 bg-blue-600"></div> 
+            <p className="text-xs font-bold text-white">Lav's Portfolio</p>
           </div>
         </div>
         <div className="bg-[#202020] text-[#d7d7d2] w-full h-full overflow-y-auto px-1.5 py-2 text-sm sm:text-lg font-[Cascadia_Mono] break-normal">
