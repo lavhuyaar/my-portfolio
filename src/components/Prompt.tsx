@@ -27,6 +27,11 @@ const Prompt = ({ promptValue, setPromptValue, submitPrompt }: PromptProps) => {
         value={promptValue}
         onChange={handleOnChange}
         onKeyDown={handleOnKeyboardEvent}
+        onBlur={(e) => {
+          if (e.relatedTarget === null) {
+            e.target.focus();
+          }
+        }}
         className="outline-none pl-2 w-full font-bold text-yellow-400"
         autoFocus
       />
