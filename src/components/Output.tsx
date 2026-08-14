@@ -1,6 +1,5 @@
 import AboutOutput from "./outputs/AboutOutput";
 import DefaultOutput from "./outputs/DefaultOutput";
-import EducationOutput from "./outputs/EducationOutput";
 import ErrorOutput from "./outputs/ErrorOutput";
 import HelpOutput from "./outputs/HelpOutput";
 import ProjectsOutput from "./outputs/ProjectsOutput";
@@ -20,7 +19,6 @@ const outputs: {
   [COMMANDS.SOCIALS]: SocialsOutput,
   [COMMANDS.PROJECTS]: ProjectsOutput,
   [COMMANDS.WORK_EXPERIENCE]: WorkExperienceOutput,
-  [COMMANDS.EDUCATION]: EducationOutput,
   [COMMANDS.SKILLS]: SkillsOutput,
   [COMMANDS.WHOAMI]: WhoAmIOutput,
 };

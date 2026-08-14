@@ -13,7 +13,7 @@ const projects: ProjectProps[] = [
   {
     title: "Twinstagram",
     description:
-      "A full-stack social media web application with authentication, posts, feeds, follows, profile privacy, and infinite scrolling.",
+      "A full-stack social media web application with authentication, posts, feeds, follows, profile privacy, and pagination.",
     liveUrl: "https://twinstagram.vercel.app",
     backendRepoUrl: "https://github.com/lavhuyaar/twinstagram_backend",
     frontRepoUrl: "https://github.com/lavhuyaar/twinstagram_frontend",
@@ -42,7 +42,7 @@ const projects: ProjectProps[] = [
 const ProjectsOutput = () => {
   return (
     <div className="flex flex-col w-full">
-      <h3>SOME OF THE PROJECTS I'VE MADE!!!</h3>
+      <h3 className="font-bold">SOME OF THE PROJECTS I'VE MADE!!!</h3>
       <br />
       <ol className="flex flex-col w-full pl-3 sm:pl-6">
         {projects.map((project, index) => (
@@ -54,13 +54,9 @@ const ProjectsOutput = () => {
               <div className="w-full md:w-1/2 flex flex-col pl-3 sm:pl-8">
                 <p>{project?.description}</p>
                 <br />
-                <ul className="flex flex-wrap">
-                  {project?.stack.map((st, index) => (
-                    <li
-                      key={index}
-                    >{`${" "}${st}${index < project?.stack.length - 1 ? "," : "."}`}</li>
-                  ))}
-                </ul>
+                <p key={index}>
+                  <span className="text-gray-400">Stack:</span> {project?.stack.join(" · ")}
+                </p>
                 <br />
                 <div className="flex items-center gap-6">
                   <HyperLink url={project?.liveUrl}>Live</HyperLink>

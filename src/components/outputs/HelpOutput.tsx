@@ -10,7 +10,6 @@ const aboutCommands: {
   [COMMANDS.SOCIALS]: "View my social profiles and contact links.",
   [COMMANDS.PROJECTS]: "Browse my projects and things I've built.",
   [COMMANDS.WORK_EXPERIENCE]: "View my professional work experience.",
-  [COMMANDS.EDUCATION]: "View my educational background.",
   [COMMANDS.SKILLS]: "View my technical skills and technologies.",
   [COMMANDS.WHOAMI]: "Display a brief introduction about me.",
 };
@@ -18,15 +17,15 @@ const aboutCommands: {
 const HelpOutput = () => {
   return (
     <div className="w-full flex flex-col">
-      <h4>TOPIC</h4>
+      <h4 className="font-bold">TOPIC</h4>
       <p className="pl-3 sm:pl-6">{"  "}Portfolio Help System</p>
       <br />
-      <h4>SHORT DESCRIPTION</h4>
+      <h4 className="font-bold">SHORT DESCRIPTION</h4>
       <p className="pl-3 sm:pl-6">
         {"  "}Displays this Portfolio's available commands.
       </p>
       <br />
-      <h4>AVAILABLE COMMANDS</h4>
+      <h4 className="font-bold">AVAILABLE COMMANDS</h4>
       <ul className="pl-3 sm:pl-6">
         {Object.keys(aboutCommands).map((command, index) => (
           <li key={index} className="flex gap-3">

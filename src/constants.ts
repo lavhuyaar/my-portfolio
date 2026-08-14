@@ -9,7 +9,6 @@ const VALID_COMMANDS: {
   SOCIALS: "socials",
   PROJECTS: "projects",
   WORK_EXPERIENCE: "workexp",
-  EDUCATION: "education",
   SKILLS: "skills",
   WHOAMI: "whoami",
   EMPTY: "empty",

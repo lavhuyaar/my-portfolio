@@ -3,7 +3,7 @@ import HyperLink from "../HyperLink";
 const DefaultOutput = () => {
   return (
     <div className="w-full flex flex-col">
-      <h3>Lav's Portfolio</h3>
+      <h3 className="font-bold">Lav's Portfolio</h3>
       <p>Copyright (C) lavhuyaar. All rights reserved.</p>
       <br />
       <p>
