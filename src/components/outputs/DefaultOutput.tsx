@@ -8,7 +8,7 @@ const DefaultOutput = () => {
       <br />
       <p>
         This is the terminal-style portfolio of B. Lav Kumar, a FullStack
-        Developer based on Raipur, India.
+        Developer based in Raipur, India.
       </p>
       <p>This is not at all a rip-off version of Microsoft's PowerShell.</p>
       <br />

@@ -4,9 +4,17 @@ type PromptProps = {
   promptValue: string;
   setPromptValue: React.Dispatch<React.SetStateAction<string>>;
   submitPrompt: VoidFunction;
+  onArrowDown: VoidFunction;
+  onArrowUp: VoidFunction;
 };
 
-const Prompt = ({ promptValue, setPromptValue, submitPrompt }: PromptProps) => {
+const Prompt = ({
+  promptValue,
+  setPromptValue,
+  submitPrompt,
+  onArrowDown,
+  onArrowUp,
+}: PromptProps) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPromptValue(event.target.value);
   };
@@ -14,8 +22,13 @@ const Prompt = ({ promptValue, setPromptValue, submitPrompt }: PromptProps) => {
   const handleOnKeyboardEvent = (
     event: React.KeyboardEvent<HTMLInputElement>,
   ) => {
-    if (event.key == "Enter") {
-      submitPrompt();
+    if (event.key === "Enter") submitPrompt();
+    else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      onArrowUp();
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      onArrowDown();
     }
   };
 
