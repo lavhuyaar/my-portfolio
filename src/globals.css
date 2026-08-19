@@ -13,8 +13,24 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* background-color: var(--color-background);
-  color: var(--color-text-primary); */
   background-color: #151515;
   align-items: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;  
+  height: 10px;   
+}
+
+::-webkit-scrollbar-track {
+  background-color: #202020;        
+}
+ 
+::-webkit-scrollbar-thumb {
+  transition: background-color 0.3s ease-in-out;    
+  background-color: #383e3f;       
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2e3436;   
 }
