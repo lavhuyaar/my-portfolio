@@ -1,43 +1,5 @@
+import { projects } from "../../data/projects";
 import HyperLink from "../HyperLink";
-
-type ProjectProps = {
-  title: string;
-  description: string;
-  liveUrl: string;
-  backendRepoUrl: string;
-  frontRepoUrl: string;
-  stack: string[];
-};
-
-const projects: ProjectProps[] = [
-  {
-    title: "Twinstagram",
-    description:
-      "A full-stack social media web application with authentication, posts, feeds, follows, profile privacy, and pagination.",
-    liveUrl: "https://twinstagram.vercel.app",
-    backendRepoUrl: "https://github.com/lavhuyaar/twinstagram_backend",
-    frontRepoUrl: "https://github.com/lavhuyaar/twinstagram_frontend",
-    stack: ["React", "TypeScript", "Express", "Prisma", "PostgreSQL", "JWT"],
-  },
-  {
-    title: "Yappin",
-    description:
-      "A real-time messaging web application with WebSocket-based communication, chat rooms, and live message updates.",
-    liveUrl: "https://yappin-fe.vercel.app",
-    backendRepoUrl: "https://github.com/lavhuyaar/yappin_backend",
-    frontRepoUrl: "https://github.com/lavhuyaar/yappin_frontend",
-    stack: ["React", "TypeScript", "Express", "WebSockets", "JWT"],
-  },
-  {
-    title: "Arqive",
-    description:
-      "A web application for organizing and managing folders and files (like Google Drive).",
-    liveUrl: "https://arqive-il7v.onrender.com/",
-    backendRepoUrl: "https://github.com/lavhuyaar/arqive",
-    frontRepoUrl: "https://github.com/lavhuyaar/arqive",
-    stack: ["Express", "EJS", "PostgreSQL", "Prisma", "Supabase"],
-  },
-];
 
 const ProjectsOutput = () => {
   return (
@@ -55,7 +17,8 @@ const ProjectsOutput = () => {
                 <p>{project?.description}</p>
                 <br />
                 <p key={index}>
-                  <span className="text-gray-400">Stack:</span> {project?.stack.join(" · ")}
+                  <span className="text-gray-400">Stack:</span>{" "}
+                  {project?.stack.join(" · ")}
                 </p>
                 <br />
                 <div className="flex items-center gap-6">

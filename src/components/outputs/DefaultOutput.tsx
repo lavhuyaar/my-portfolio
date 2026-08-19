@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import HyperLink from "../HyperLink";
 
 const DefaultOutput = () => {
@@ -11,13 +12,22 @@ const DefaultOutput = () => {
         Developer based in Raipur, India.
       </p>
       <p>This is not at all a rip-off version of Microsoft's PowerShell.</p>
+      <p>
+        To see his resume click{" "}
+        <HyperLink url="/public/lav-resume.pdf">here</HyperLink>.
+      </p>
       <br />
       <p>Type "help" to see available commands.</p>
       <br />
       <p>
         Prefer the traditional-style portfolio? Click{" "}
         {/* later change the url here */}
-        <HyperLink url="https://www.dummylink.com/simple"></HyperLink> 
+        <Link
+          to="/simple"
+          className="underline underline-offset-4 outline-none text-[#d7d7d2] hover:text-[#9e9e9c] break-all "
+        >
+          here
+        </Link>
       </p>
     </div>
   );
