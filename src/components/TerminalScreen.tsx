@@ -82,7 +82,7 @@ const TerminalScreen = () => {
       <div className="flex flex-col rounded-md w-full h-full overflow-hidden">
         <div className=" bg-[#383e3f] pt-1.5 pl-1.5 w-full flex">
           <div className="bg-[#272b2b] py-2 pl-2 pr-18 rounded-t-md flex items-center gap-2">
-            <img className="w-10 h-6 shrink-0" src="../../public/logo.png" />
+            <img className="w-10 h-6 shrink-0" src="/logo.png" />
             <p className="text-xs font-bold text-white">Lav's Portfolio</p>
           </div>
         </div>

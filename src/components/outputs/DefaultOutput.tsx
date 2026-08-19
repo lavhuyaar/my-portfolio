@@ -14,7 +14,7 @@ const DefaultOutput = () => {
       <p>This is not at all a rip-off version of Microsoft's PowerShell.</p>
       <p>
         To see his resume click{" "}
-        <HyperLink url="/public/lav-resume.pdf">here</HyperLink>.
+        <HyperLink url="/lav-resume.pdf">here</HyperLink>.
       </p>
       <br />
       <p>Type "help" to see available commands.</p>

@@ -69,7 +69,7 @@ const SimplePortfolio = () => {
       <header className="border-b border-[#292d2e]">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <a href="/" className="font-bold tracking-tight">
-            <img src="../../public/logo.png" className="w-10 h-6" alt="" />
+            <img src="/logo.png" className="w-10 h-6" alt="" />
           </a>
 
           <nav className="hidden gap-6 text-sm text-gray-400 sm:flex">
