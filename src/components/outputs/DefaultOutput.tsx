@@ -20,13 +20,12 @@ const DefaultOutput = () => {
       <p>Type "help" to see available commands.</p>
       <br />
       <p>
-        Prefer the traditional-style portfolio? Click{" "}
-        {/* later change the url here */}
+        Prefer the traditional-style portfolio? Switch to the{" "}
         <Link
           to="/simple"
           className="underline underline-offset-4 outline-none text-[#d7d7d2] hover:text-[#9e9e9c] break-all "
         >
-          here
+          Simple View
         </Link>
       </p>
     </div>
