@@ -1,77 +1,130 @@
-# React + TypeScript + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website of Lav, a full-stack web developer. The main page is an interactive terminal where visitors type commands to explore my work. A conventional single-page layout is also available for anyone who prefers it.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Terminal-style interface with command history (arrow up and down)
+- Commands for viewing about info, projects, work experience, skills, and social links
+- Simple portfolio view at `/simple` with standard sections and navigation
+- Responsive layout for desktop and mobile
+- Custom 404 page
+- Downloadable resume (served from `public/`)
 
-## React Compiler
+## Terminal Commands
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+| Command    | Description                                   |
+| ---------- | --------------------------------------------- |
+| `help`     | Display a list of available commands          |
+| `about`    | Learn more about this project                 |
+| `whoami`   | Display a brief introduction                  |
+| `projects` | Browse projects                               |
+| `workexp`  | View professional work experience             |
+| `skills`   | View technical skills and technologies        |
+| `socials`  | View social profiles and contact links        |
+| `default`  | Display the welcome screen                    |
+| `clear`    | Clear the terminal screen                     |
 
-Note: This will impact Vite dev & build performances.
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19 with TypeScript
+- Vite
+- React Router
+- Tailwind CSS v4
+- React Icons
+- ESLint
+- React Compiler (via Babel)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (a recent LTS version)
+- npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
 
+```bash
+git clone git@github.com:lavhuyaar/my-portfolio.git
+cd my-portfolio
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the project root with the following values:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_GITHUB=
+VITE_LINKEDIN=
+VITE_LEETCODE=
+VITE_EMAIL=
+```
+
+| Variable        | Used for                                          |
+| --------------- | ------------------------------------------------- |
+| `VITE_GITHUB`   | GitHub profile URL, also the base for repo links  |
+| `VITE_LINKEDIN` | LinkedIn profile URL                              |
+| `VITE_LEETCODE` | LeetCode profile URL                              |
+| `VITE_EMAIL`    | Email address used for the contact link           |
+
+`VITE_GITHUB` should be the profile URL without a trailing slash, since project repository links are built from it.
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+The app will be available at the URL printed in the terminal.
+
+## Scripts
+
+| Script            | Description                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start the development server             |
+| `npm run build`   | Type-check and create a production build |
+| `npm run preview` | Preview the production build locally     |
+| `npm run lint`    | Run ESLint                               |
+
+## Project Structure
 
 ```
+my-portfolio/
+  public/                 Static assets (logos, resume PDF)
+  src/
+    components/           Terminal UI components
+      outputs/            One component per terminal command
+    data/                 Content: about, projects, skills, socials, experience
+    pages/                Home (terminal), SimplePortfolio, PageNotFound
+    routes/               Route definitions
+    utils/                Helper functions
+    constants.ts          List of valid terminal commands
+    globals.css           Global styles
+    main.tsx              App entry point
+  index.html
+  vite.config.ts
+  vercel.json             SPA rewrite rule for deployment
+```
+
+## Updating Content
+
+Most of the site's content lives in `src/data/`, so it can be updated without touching any components:
+
+- `aboutMe.ts` for the introduction
+- `projects.ts` for projects
+- `skills.ts` for skills
+- `workExperience.ts` for work experience
+- `socials.ts` for social links
+
+To add a new terminal command, add it to `src/constants.ts`, create an output component in `src/components/outputs/`, and register it in the output rendering logic.
+
+To replace the resume, swap out the PDF in `public/`.
+
+## Deployment
+
+The site is configured for Vercel. `vercel.json` rewrites all routes to the root so client-side routing works on refresh. Set the environment variables listed above in the Vercel project settings before deploying.
+
+## Contact
+
+Reach out through the links in the `socials` command or on the `/simple` page.
